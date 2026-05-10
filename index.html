@@ -7,7 +7,7 @@
     <style>
         :root {
             --glow: #00d2ff;
-            --bg: rgba(2, 5, 10, 0.7); /* Background hitam separa telus */
+            --bg: rgba(2, 5, 10, 0.7);
             --card: rgba(10, 25, 47, 0.85);
             --whatsapp: #25d366;
         }
@@ -17,6 +17,7 @@
             height: 100%; overflow-x: hidden;
             font-family: 'Segoe UI', sans-serif;
             color: white;
+            background: black;
         }
 
         /* Video Background Styling */
@@ -30,93 +31,96 @@
         
         .video-background iframe {
             width: 100vw;
-            height: 56.25vw; /* 16:9 ratio */
+            height: 56.25vw;
             min-height: 100vh;
-            min-width: 177.77vh; /* 16:9 ratio */
+            min-width: 177.77vh;
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             pointer-events: none;
-            filter: brightness(0.4) grayscale(0.3); /* Biar video tak terlalu terang */
+            filter: brightness(0.5); /* Gelapkan sikit supaya teks nampak jelas */
         }
 
         .overlay {
-            position: absolute; top: 0; left: 0;
+            position: relative;
             width: 100%; min-height: 100%;
-            background: radial-gradient(circle, transparent 20%, var(--bg) 100%);
+            background: rgba(0, 0, 0, 0.3);
             display: flex; flex-direction: column; align-items: center;
             padding: 20px; box-sizing: border-box;
         }
 
         .header h1 {
-            font-size: 28px; letter-spacing: 4px; color: var(--glow);
-            text-shadow: 0 0 20px var(--glow); margin: 10px 0;
-            text-align: center;
+            font-size: 26px; letter-spacing: 3px; color: var(--glow);
+            text-shadow: 0 0 15px var(--glow); margin: 20px 0 5px;
+            text-align: center; font-weight: bold;
         }
 
-        /* Search Bar */
-        .search-container { width: 100%; max-width: 450px; margin-bottom: 20px; }
+        .search-container { width: 100%; max-width: 450px; margin-bottom: 25px; }
         #searchInput {
-            width: 100%; padding: 12px 20px;
-            background: rgba(0, 0, 0, 0.6);
+            width: 100%; padding: 14px 20px;
+            background: rgba(0, 0, 0, 0.7);
             border: 1px solid var(--glow);
             border-radius: 30px; color: white;
             box-sizing: border-box; outline: none;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
         }
 
-        /* Reseller List Scrollable */
         .reseller-list {
             width: 100%; max-width: 450px;
-            display: flex; flex-direction: column; gap: 12px;
-            padding-bottom: 50px;
+            display: flex; flex-direction: column; gap: 15px;
+            padding-bottom: 60px;
         }
 
         .reseller-card {
             background: var(--card);
             border: 1px solid rgba(0, 210, 255, 0.3);
-            padding: 15px; border-radius: 15px;
+            padding: 18px; border-radius: 18px;
             display: flex; justify-content: space-between; align-items: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             transition: 0.3s;
         }
 
         .reseller-card:hover {
             border-color: var(--glow);
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
             transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
         }
 
-        .info h3 { margin: 0; font-size: 14px; letter-spacing: 1px; }
-        .info p { margin: 2px 0 0; font-size: 11px; color: var(--glow); }
+        .info h3 { margin: 0; font-size: 15px; color: #fff; letter-spacing: 0.5px; }
+        .info p { margin: 4px 0 0; font-size: 11px; color: var(--glow); font-weight: bold; }
 
         .btn-wa {
             background: var(--whatsapp);
             color: white; text-decoration: none;
-            padding: 8px 15px; border-radius: 8px;
-            font-size: 11px; font-weight: bold;
-            box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+            padding: 10px 18px; border-radius: 10px;
+            font-size: 12px; font-weight: 800;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
         }
 
         .status-tag {
-            font-size: 9px; padding: 2px 6px;
-            border-radius: 4px; background: rgba(0, 255, 0, 0.2);
+            font-size: 9px; padding: 2px 8px;
+            border-radius: 5px; background: rgba(0, 255, 0, 0.15);
             color: #00ff00; border: 1px solid #00ff00;
-            margin-bottom: 5px; display: inline-block;
+            margin-bottom: 6px; display: inline-block;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- Video Background (YouTube Gojo Live Wallpaper) -->
+    <!-- Video Background Gojo Terkini -->
     <div class="video-background">
-        <iframe src="https://youtu.be/aMTXY75ywL0?si=evBm9DotgCi16BTv" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+        <iframe 
+            src="https://www.youtube.com/embed/aMTXY75ywL0?autoplay=1&mute=1&loop=1&playlist=aMTXY75ywL0&controls=0&showinfo=0&rel=0&iv_load_policy=3&playsinline=1" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media">
+        </iframe>
     </div>
 
     <div class="overlay">
         <div class="header">
             <h1>VOM UNDERC0DE</h1>
-            <p style="text-align:center; font-size: 10px; letter-spacing: 2px; opacity: 0.8;">AUTHORISED RESELLER LIST</p>
+            <p style="text-align:center; font-size: 10px; letter-spacing: 2px; opacity: 0.8; margin-bottom: 20px;">AUTHORISED RESELLER LIST</p>
         </div>
 
         <div class="search-container">
@@ -129,13 +133,13 @@
             <div class="reseller-card">
                 <div class="info">
                     <span class="status-tag">OWNER</span>
-                    <h3>AlipofficialMy</h3>
-                    <p>ID: VOM-000</p>
+                    <h3>ALIPOFFICIALMY</h3></h3>
+                    <p>ID: VOM-001</p>
                 </div>
                 <a href="https://wa.me/601133407753" class="btn-wa">WHATSAPP</a>
             </div>
 
-            <!-- Anda boleh copy-paste kod Reseller Card di bawah ini sebanyak 30 kali -->
+            <!-- SLOT KOSONG UNTUK ANDA EDIT (SAYA SEDIAKAN 5 SEBAGAI CONTOH) -->
             <div class="reseller-card">
                 <div class="info">
                     <span class="status-tag">ACTIVE</span>
@@ -145,11 +149,18 @@
                 <a href="https://wa.me/601XXXXXXXXX" class="btn-wa">WHATSAPP</a>
             </div>
 
-            <!-- Tambah lagi di bawah sini... -->
+            <div class="reseller-card">
+                <div class="info">
+                    <span class="status-tag">ACTIVE</span>
+                    <h3>NAMA RESELLER 3</h3>
+                    <p>ID: VOM-003</p>
+                </div>
+                <a href="https://wa.me/601XXXXXXXXX" class="btn-wa">WHATSAPP</a>
+            </div>
+
+            <!-- Teruskan copy-paste kotak di atas sehingga 30 orang -->
 
         </div>
-
-        <p style="font-size: 10px; opacity: 0.5; margin: 30px 0;">"Imaginary Technique: Hollow Purple" — Gojo Satoru</p>
     </div>
 
     <script>
@@ -168,5 +179,4 @@
     </script>
 
 </body>
-    </html>
-    
+</html>

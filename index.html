@@ -3,86 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIST RESELLER | UNDERCODE VOM</title></title>
+    <title>LIST RESELLER | UNDERCODE VOM</title>
     <style>
-        :root { --gold: #D4AF37; --bg: #050505; --card-bg: #111111; }
-        body { margin: 0; padding: 0; background-color: var(--bg); color: #ffffff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; }
-        .header { text-align: center; padding: 40px 20px 50px; width: 100%; }
-        .header h1 { color: var(--gold); font-size: 24px; letter-spacing: 4px; text-transform: uppercase; }
-        .search-container { width: 85%; max-width: 320px; margin: -20px 0 35px; }
-        #searchInput { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid var(--gold); border-radius: 50px; color: white; text-align: center; outline: none; }
+        :root { --gold: #D4AF37; --bg: #050505; --card: #111111; }
+        body { margin: 0; background: var(--bg); color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; }
+        .header { text-align: center; padding: 40px 20px; width: 100%; }
+        .header h1 { color: var(--gold); font-size: 24px; text-transform: uppercase; letter-spacing: 3px; }
+        #searchInput { width: 80%; max-width: 300px; padding: 12px; background: #1a1a1a; border: 1px solid var(--gold); border-radius: 50px; color: white; text-align: center; margin-bottom: 30px; outline: none; }
         .reseller-list { width: 90%; max-width: 450px; display: flex; flex-direction: column; gap: 12px; padding-bottom: 120px; }
-        .reseller-card { background: var(--card-bg); border-left: 3px solid var(--gold); border-radius: 12px; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .card { background: var(--card); border-left: 3px solid var(--gold); border-radius: 12px; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         .info h3 { margin: 0; font-size: 13px; text-transform: uppercase; }
         .info p { margin: 4px 0 0; font-size: 10px; color: #666; font-weight: bold; }
-        .status-box { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
-        .status-active { font-size: 8px; color: var(--gold); border: 1px solid var(--gold); padding: 1px 6px; border-radius: 4px; font-weight: bold; }
         .btn-wa { background: linear-gradient(45deg, #B8860B, #F9E29C); color: #000; text-decoration: none; padding: 7px 12px; border-radius: 6px; font-size: 10px; font-weight: 800; }
-        
-        /* Music Player Style */
-        #music-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(17,17,17,0.98); border: 1px solid var(--gold); padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 15px; z-index: 9999; width: 260px; box-shadow: 0 0 20px rgba(212,175,55,0.4); }
-        #playBtn { background: var(--gold); border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+        #music-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(17,17,17,0.98); border: 1px solid var(--gold); padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 15px; width: 260px; z-index: 999; box-shadow: 0 0 20px rgba(212,175,55,0.4); }
     </style>
 </head>
-<body onclick="firstClick()">
-
+<body onclick="startAudio()">
     <div class="header">
         <h1>TRUSTED SELLER VOM</h1>
-        <p style="font-size: 9px; color: #666; letter-spacing: 2px;">VOM UNDERC0DE DATABASE</p>
+        <p style="font-size: 9px; color: #666;">VOM UNDERC0DE DATABASE</p>
     </div>
+    <input type="text" id="searchInput" onkeyup="search()" placeholder="Cari Nama Reseller...">
+    <div class="reseller-list" id="list"></div>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="searchReseller()" placeholder="Cari Nama Reseller...">
-    </div>
-
-    <div class="reseller-list" id="resellerList">
-        <!-- Contoh 3 Reseller (Anda boleh tambah lagi ikut format sama) -->
-        <div class="reseller-card"><div class="info"><h3>AlipOfficialMy</h3><p>#VOM_00 • LEADER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601130694931" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>ZyroOfficialMy</h3><p>#VOM_04 • ASSISTANT</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60177220301" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>RillzzOfficialMy</h3><p>#VOM_01 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60182092362" class="btn-wa">WHATSAPP</a></div></div>
-    </div>
-
-    <!-- Music Player UI -->
     <div id="music-container">
         <div style="flex: 1; text-align: center;">
-            <div style="color: var(--gold); font-size: 10px; font-weight: bold; letter-spacing: 1px;">VOM OFFICIAL BGM</div>
-            <div id="mStatus" style="color: #666; font-size: 8px;">TAP ANYWHERE TO PLAY</div>
+            <div style="color: var(--gold); font-size: 10px; font-weight: bold;">VOM OFFICIAL BGM</div>
+            <div id="mS" style="color: #666; font-size: 8px;">TAP TO PLAY</div>
         </div>
-        <button id="playBtn" onclick="toggleM()">▶</button>
+        <button id="pBtn" onclick="toggleM()" style="background:var(--gold); border:none; width:35px; height:35px; border-radius:50%; cursor:pointer;">▶</button>
     </div>
-
-    <!-- Hidden Video Player (For Audio) -->
-    <video id="bgM" loop style="display:none;">
-        <source src="https://files.catbox.moe/o6t529.mp4" type="video/mp4">
-    </video>
+    <video id="bgM" loop style="display:none;"><source src="https://files.catbox.moe/o6t529.mp4" type="video/mp4"></video>
 
     <script>
-        const v = document.getElementById('bgM');
-        const b = document.getElementById('playBtn');
-        const s = document.getElementById('mStatus');
+        const data = [
+            {n:"AlipOfficialMy", id:"00", t:"601130694931", r:"LEADER"},
+            {n:"ZyroOfficialMy", id:"04", t:"60177220301", r:"ASSISTANT"},
+            {n:"RillzzOfficialMy", id:"01", t:"60182092362", r:"MEMBER"},
+            {n:"RzOfficialMy", id:"02", t:"60166346093", r:"MEMBER"},
+            {n:"AminxOfficialMy", id:"03", t:"601118817549", r:"MEMBER"},
+            {n:"QstoreOfficialMy", id:"05", t:"601157876054", r:"MEMBER"},
+            {n:"YiyinOfficialMy", id:"06", t:"601159208689", r:"MEMBER"},
+            {n:"ImzzOfficialMy", id:"07", t:"60146014701", r:"MEMBER"},
+            {n:"LeeyaOfficialMy", id:"08", t:"601169368813", r:"MEMBER"},
+            {n:"QilerOfficialMy", id:"09", t:"60107828994", r:"MEMBER"},
+            {n:"FiqOfficialMy", id:"10", t:"601133407753", r:"MEMBER"},
+            {n:"RulzOfficialMy", id:"11", t:"60177949812", r:"MEMBER"},
+            {n:"FizzOfficialMy", id:"12", t:"60197115664", r:"MEMBER"},
+            {n:"HaziqOfficialMy", id:"13", t:"601110564924", r:"MEMBER"},
+            {n:"ProbeOfficialMy", id:"14", t:"60102802305", r:"MEMBER"},
+            {n:"IpanOfficialMy", id:"15", t:"60169571363", r:"MEMBER"},
+            {n:"MidmorOfficialMy", id:"16", t:"60178370993", r:"MEMBER"},
+            {n:"RexxOfficialMy", id:"17", t:"60108297971", r:"MEMBER"},
+            {n:"MidwanOfficialMy", id:"18", t:"60109688445", r:"MEMBER"},
+            {n:"NiellOfficialMy", id:"19", t:"601163701405", r:"MEMBER"},
+            {n:"HanzleOfficialMy", id:"20", t:"60177964376", r:"MEMBER"},
+            {n:"BamOfficialMy", id:"21", t:"601156664940", r:"MEMBER"},
+            {n:"ClonzOfficialMy", id:"22", t:"601175648431", r:"MEMBER"},
+            {n:"DanzzOfficialMy", id:"23", t:"60196828535", r:"MEMBER"},
+            {n:"RissaOfficialMy", id:"24", t:"601126145563", r:"MEMBER"},
+            {n:"MidmanzOfficialMy", id:"25", t:"60173482079", r:"MEMBER"},
+            {n:"RizzOfficialMy", id:"26", t:"601116219602", r:"MEMBER"},
+            {n:"ArfanOfficialMy", id:"27", t:"601172584770", r:"MEMBER"},
+            {n:"RezxOfficialMy", id:"28", t:"60178654488", r:"MEMBER"},
+            {n:"MirulOfficialMy", id:"29", t:"60176015605", r:"MEMBER"},
+            {n:"DimzOfficialMy", id:"30", t:"601123103168", r:"MEMBER"},
+            {n:"AhnasOfficialMy", id:"31", t:"60135989578", r:"MEMBER"}
+        ];
 
-        function toggleM() {
-            if (v.paused) {
-                v.play();
-                b.innerText = "⏸";
-                s.innerText = "NOW PLAYING";
-            } else {
-                v.pause();
-                b.innerText = "▶";
-                s.innerText = "PAUSED";
-            }
-        }
+        const container = document.getElementById('list');
+        data.forEach(p => {
+            container.innerHTML += `<div class="card"><div class="info"><h3>${p.n}</h3><p>#VOM_${p.id} • ${p.r}</p></div><a href="https://wa.me/${p.t}" class="btn-wa">WHATSAPP</a></div>`;
+        });
 
-        // Auto-play trigger bila user klik mana-mana dlm web
-        function firstClick() {
-            if (v.paused && s.innerText === "TAP ANYWHERE TO PLAY") {
-                toggleM();
-            }
-        }
-
-        function searchReseller() {
+        const v = document.getElementById('bgM'), b = document.getElementById('pBtn'), s = document.getElementById('mS');
+        function toggleM() { if(v.paused){ v.play(); b.innerText="⏸"; s.innerText="NOW PLAYING"; } else { v.pause(); b.innerText="▶"; s.innerText="PAUSED"; }}
+        function startAudio() { if(v.paused && s.innerText === "TAP TO PLAY") toggleM(); }
+        function search() {
             let input = document.getElementById('searchInput').value.toUpperCase();
-            let cards = document.getElementsByClassName('reseller-card');
+            let cards = document.getElementsByClassName('card');
             for (let i = 0; i < cards.length; i++) {
                 let name = cards[i].getElementsByTagName('h3')[0].innerText;
                 cards[i].style.display = name.toUpperCase().indexOf(input) > -1 ? "" : "none";

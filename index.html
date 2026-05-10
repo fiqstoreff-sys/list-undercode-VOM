@@ -3,143 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOM | INFINITY SYSTEM</title>
+    <title>LIST RESELLER | UNDERCODE VOM</title>
     <style>
         :root {
-            --main-blue: #00d2ff;
-            --deep-blue: #0a192f;
-            --glass: rgba(255, 255, 255, 0.05);
+            --gold: #D4AF37;
+            --gold-light: #F9E29C;
+            --bg: #050505;
+            --card-bg: #111111;
         }
 
         body {
             margin: 0; padding: 0;
-            background: #02050a;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            display: flex; justify-content: center;
+            background-color: var(--bg);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            display: flex; flex-direction: column; align-items: center;
         }
 
-        /* Gojo Aura Background */
-        .aura-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #0a192f 0%, #02050a 100%);
-            z-index: -2;
+        /* Header Style */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, #1a1a1a, var(--bg));
+            width: 100%;
         }
 
-        .blue-glow {
-            position: fixed; top: -10%; right: -10%; width: 400px; height: 400px;
-            background: var(--main-blue); filter: blur(150px); opacity: 0.15; z-index: -1;
-        }
-
-        .container {
-            width: 100%; max-width: 480px; padding: 40px 20px;
-        }
-
-        .main-title {
-            text-align: center; margin-bottom: 40px;
-        }
-
-        .main-title h1 {
-            font-size: 32px; font-weight: 900; letter-spacing: -1px;
-            background: linear-gradient(to bottom, #fff, var(--main-blue));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        .header h1 {
+            color: var(--gold);
+            font-size: 28px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
             margin: 0;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
-        /* Modern Search */
-        .search-box {
-            background: var(--glass);
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px; padding: 5px 15px;
-            display: flex; align-items: center; margin-bottom: 30px;
+        .header p {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #888;
+            margin-top: 5px;
         }
 
-        .search-box input {
-            background: transparent; border: none; color: white;
-            padding: 12px; width: 100%; outline: none; font-size: 14px;
+        /* Search Bar */
+        .search-container {
+            width: 90%; max-width: 450px;
+            margin: -25px 0 30px;
         }
 
-        /* Crystal Cards */
-        .reseller-grid { display: flex; flex-direction: column; gap: 15px; }
+        #searchInput {
+            width: 100%; padding: 15px 25px;
+            background: #1a1a1a;
+            border: 1px solid var(--gold);
+            border-radius: 50px;
+            color: white;
+            outline: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            font-size: 14px;
+        }
 
-        .card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 20px; padding: 20px;
+        /* List Styling */
+        .reseller-list {
+            width: 90%; max-width: 450px;
+            display: flex; flex-direction: column; gap: 15px;
+            padding-bottom: 50px;
+        }
+
+        .reseller-card {
+            background: var(--card-bg);
+            border-left: 4px solid var(--gold);
+            border-radius: 12px;
+            padding: 20px;
             display: flex; justify-content: space-between; align-items: center;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .card:hover {
-            transform: scale(1.03);
-            border-color: var(--main-blue);
-            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.15);
+        .reseller-card:hover {
+            transform: translateX(5px);
+            background: #161616;
         }
 
-        .res-name { font-weight: 700; font-size: 16px; margin-bottom: 4px; display: block; }
-        .res-id { font-size: 11px; color: var(--main-blue); letter-spacing: 1px; font-weight: 600; }
+        .info h3 {
+            margin: 0; font-size: 16px; 
+            letter-spacing: 1px; color: #fff;
+        }
 
-        .wa-link {
-            width: 45px; height: 45px;
-            background: white; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+        .info p {
+            margin: 5px 0 0; font-size: 11px;
+            color: #666; font-weight: bold;
+        }
+
+        /* Status & Button */
+        .status-box {
+            display: flex; flex-direction: column;
+            align-items: flex-end; gap: 8px;
+        }
+
+        .status-active {
+            font-size: 9px;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-wa {
+            background: linear-gradient(45deg, #B8860B, #F9E29C);
+            color: #000;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            display: flex; align-items: center; gap: 5px;
             transition: 0.3s;
         }
 
-        .wa-link:hover { background: var(--main-blue); }
+        .btn-wa:hover {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            transform: scale(1.05);
+        }
 
-        .wa-link svg { fill: #000; width: 20px; }
-
-        .footer { text-align: center; margin-top: 50px; font-size: 11px; opacity: 0.4; }
+        .footer {
+            margin-bottom: 30px;
+            font-size: 10px;
+            color: #444;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
-    <div class="aura-bg"></div>
-    <div class="blue-glow"></div>
+    <div class="header">
+        <h1>VOM EXCLUSIVE</h1>
+        <p>AUTHORISED RESELLER DATABASE</p>
+    </div>
 
-    <div class="container">
-        <div class="main-title">
-            <p style="color: var(--main-blue); font-size: 12px; font-weight: 700; margin-bottom: 5px;">VOM UNDERC0DE</p>
-            <h1>INFINITY LIST</h1>
-        </div>
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchReseller()" placeholder="Cari reseller emas anda...">
+    </div>
 
-        <div class="search-box">
-            <input type="text" id="find" onkeyup="filter()" placeholder="Search authorized reseller...">
-        </div>
-
-        <div class="reseller-grid" id="list">
-            
-            <!-- Card 1 -->
-            <div class="card">
-                <div>
-                    <span class="res-name">ALIPOFFICIALMY</span>
-                    <span class="res-id">OWNER • VOM-000</span>
-                </div>
-                <a href="https://wa.me/601133407753" class="wa-link">
-                    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412s-1.238 6.164-3.484 8.412c-2.246 2.248-5.232 3.487-8.413 3.487-2.015 0-3.991-.51-5.757-1.474l-6.736 1.675zm5.851-4.823c1.562.928 3.178 1.417 4.843 1.417 5.104 0 9.258-4.155 9.258-9.26s-4.154-9.259-9.258-9.259c-5.106 0-9.261 4.155-9.261 9.259 0 1.742.483 3.442 1.397 4.917l-.984 3.595 3.69-.916z"/></svg>
-                </a>
+    <div class="reseller-list" id="resellerList">
+        
+        <!-- RESELLER 1 -->
+        <div class="reseller-card">
+            <div class="info">
+                <h3>ALIPOFFICIALMY</h3>
+                <p>ID: VOM-00O • OWNER</p>
             </div>
-
-            <!-- Anda boleh copy card di atas untuk reseller lain -->
-
+            <div class="status-box">
+                <span class="status-active">ACTIVE</span>
+                <a href="https://wa.me/601133407753" class="btn-wa">WHATSAPP</a>
+            </div>
         </div>
 
-        <div class="footer">
-            "Don't worry, I'm the strongest."<br>
-            SECURED BY VOM SYSTEM 2026
+        <!-- RESELLER 2 -->
+        <div class="reseller-card">
+            <div class="info">
+                <h3>RESELLER NAME 2</h3>
+                <p>ID: VOM-002 • MEMBER</p>
+            </div>
+            <div class="status-box">
+                <span class="status-active">ACTIVE</span>
+                <a href="https://wa.me/601XXXXXXXXX" class="btn-wa">WHATSAPP</a>
+            </div>
         </div>
+
+        <!-- Anda boleh copy-paste reseller-card ini sebanyak 30 kali -->
+
+    </div>
+
+    <div class="footer">
+        © 2026 VOM UNDERC0DE - ALL RIGHTS RESERVED
     </div>
 
     <script>
-        function filter() {
-            let val = document.getElementById('find').value.toUpperCase();
-            let cards = document.getElementsByClassName('card');
+        function searchReseller() {
+            let input = document.getElementById('searchInput').value.toUpperCase();
+            let cards = document.getElementsByClassName('reseller-card');
             for (let i = 0; i < cards.length; i++) {
-                let txt = cards[i].innerText;
-                cards[i].style.display = txt.toUpperCase().indexOf(val) > -1 ? "" : "none";
+                let name = cards[i].getElementsByTagName('h3')[0];
+                if (name.innerHTML.toUpperCase().indexOf(input) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
             }
         }
     </script>

@@ -7,7 +7,6 @@
     <style>
         :root {
             --gold: #D4AF37;
-            --gold-light: #F9E29C;
             --bg: #050505;
             --card-bg: #111111;
         }
@@ -20,48 +19,41 @@
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* Header Style */
         .header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px 20px 50px;
             background: linear-gradient(to bottom, #1a1a1a, var(--bg));
             width: 100%;
         }
 
         .header h1 {
             color: var(--gold);
-            font-size: 28px;
-            letter-spacing: 5px;
+            font-size: 24px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             margin: 0;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
-        .header p {
-            font-size: 10px;
-            letter-spacing: 2px;
-            color: #888;
-            margin-top: 5px;
-        }
-
-        /* Search Bar */
+        /* SEARCH BAR DIPENDEKKAN */
         .search-container {
-            width: 90%; max-width: 450px;
-            margin: -25px 0 30px;
+            width: 85%;
+            max-width: 320px;
+            margin: -20px 0 35px;
         }
 
         #searchInput {
-            width: 100%; padding: 15px 25px;
-            background: #1a1a1a;
+            width: 100%; 
+            padding: 10px 20px;
+            background: rgba(26, 26, 26, 0.9);
             border: 1px solid var(--gold);
             border-radius: 50px;
             color: white;
             outline: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            font-size: 14px;
+            font-size: 13px;
+            text-align: center;
+            box-sizing: border-box;
         }
 
-        /* List Styling */
         .reseller-list {
             width: 90%; max-width: 450px;
             display: flex; flex-direction: column; gap: 15px;
@@ -70,113 +62,54 @@
 
         .reseller-card {
             background: var(--card-bg);
-            border-left: 4px solid var(--gold);
+            border-left: 3px solid var(--gold);
             border-radius: 12px;
-            padding: 20px;
+            padding: 15px 20px;
             display: flex; justify-content: space-between; align-items: center;
-            transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .reseller-card:hover {
-            transform: translateX(5px);
-            background: #161616;
-        }
+        .info h3 { margin: 0; font-size: 14px; text-transform: uppercase; }
+        .info p { margin: 4px 0 0; font-size: 10px; color: #666; }
 
-        .info h3 {
-            margin: 0; font-size: 16px; 
-            letter-spacing: 1px; color: #fff;
-        }
-
-        .info p {
-            margin: 5px 0 0; font-size: 11px;
-            color: #666; font-weight: bold;
-        }
-
-        /* Status & Button */
-        .status-box {
-            display: flex; flex-direction: column;
-            align-items: flex-end; gap: 8px;
-        }
+        .status-box { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
 
         .status-active {
-            font-size: 9px;
-            color: var(--gold);
+            font-size: 8px; color: var(--gold);
             border: 1px solid var(--gold);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-transform: uppercase;
+            padding: 1px 6px; border-radius: 4px; font-weight: bold;
         }
 
         .btn-wa {
             background: linear-gradient(45deg, #B8860B, #F9E29C);
-            color: #000;
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 800;
-            display: flex; align-items: center; gap: 5px;
-            transition: 0.3s;
-        }
-
-        .btn-wa:hover {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-            transform: scale(1.05);
-        }
-
-        .footer {
-            margin-bottom: 30px;
-            font-size: 10px;
-            color: #444;
-            text-align: center;
+            color: #000; text-decoration: none;
+            padding: 8px 12px; border-radius: 6px;
+            font-size: 11px; font-weight: 800;
         }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>VOM EXCLUSIVE</h1>
-        <p>AUTHORISED RESELLER DATABASE</p>
+        <h1>TRUSTED SELLER VOM</h1>
+        <p style="font-size: 9px; color: #666; letter-spacing: 2px;">AUTHORISED RESELLER DATABASE</p>
     </div>
 
     <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="searchReseller()" placeholder="Cari reseller emas anda...">
+        <input type="text" id="searchInput" onkeyup="searchReseller()" placeholder="Cari Nama Reseller...">
     </div>
 
     <div class="reseller-list" id="resellerList">
-        
-        <!-- RESELLER 1 -->
         <div class="reseller-card">
             <div class="info">
                 <h3>ALIPOFFICIALMY</h3>
-                <p>ID: VOM-00O • OWNER</p>
+                <p>ID: VOM-000 • OWNER</p>
             </div>
             <div class="status-box">
                 <span class="status-active">ACTIVE</span>
                 <a href="https://wa.me/601133407753" class="btn-wa">WHATSAPP</a>
             </div>
         </div>
-
-        <!-- RESELLER 2 -->
-        <div class="reseller-card">
-            <div class="info">
-                <h3>RESELLER NAME 2</h3>
-                <p>ID: VOM-002 • MEMBER</p>
-            </div>
-            <div class="status-box">
-                <span class="status-active">ACTIVE</span>
-                <a href="https://wa.me/601XXXXXXXXX" class="btn-wa">WHATSAPP</a>
-            </div>
-        </div>
-
-        <!-- Anda boleh copy-paste reseller-card ini sebanyak 30 kali -->
-
-    </div>
-
-    <div class="footer">
-        © 2026 VOM UNDERC0DE - ALL RIGHTS RESERVED
+        <!-- Tambah slot lain di sini -->
     </div>
 
     <script>
@@ -193,6 +126,5 @@
             }
         }
     </script>
-
 </body>
 </html>

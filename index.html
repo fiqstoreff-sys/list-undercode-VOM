@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOM | AUTHORISED RESELLER</title>
+    <title>LIST RESELLER | UNDERCODE VOM</title></title>
     <style>
         :root { --gold: #D4AF37; --bg: #050505; --card-bg: #111111; }
         body { margin: 0; padding: 0; background-color: var(--bg); color: #ffffff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; }
         .header { text-align: center; padding: 40px 20px 50px; width: 100%; }
         .header h1 { color: var(--gold); font-size: 24px; letter-spacing: 4px; text-transform: uppercase; }
         .search-container { width: 85%; max-width: 320px; margin: -20px 0 35px; }
-        #searchInput { width: 100%; padding: 10px; background: #1a1a1a; border: 1px solid var(--gold); border-radius: 50px; color: white; text-align: center; outline: none; }
+        #searchInput { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid var(--gold); border-radius: 50px; color: white; text-align: center; outline: none; }
         .reseller-list { width: 90%; max-width: 450px; display: flex; flex-direction: column; gap: 12px; padding-bottom: 120px; }
         .reseller-card { background: var(--card-bg); border-left: 3px solid var(--gold); border-radius: 12px; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         .info h3 { margin: 0; font-size: 13px; text-transform: uppercase; }
@@ -18,11 +18,13 @@
         .status-box { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
         .status-active { font-size: 8px; color: var(--gold); border: 1px solid var(--gold); padding: 1px 6px; border-radius: 4px; font-weight: bold; }
         .btn-wa { background: linear-gradient(45deg, #B8860B, #F9E29C); color: #000; text-decoration: none; padding: 7px 12px; border-radius: 6px; font-size: 10px; font-weight: 800; }
-        #music-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(17, 17, 17, 0.95); border: 1px solid var(--gold); padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 15px; z-index: 9999; width: 280px; box-shadow: 0 0 15px rgba(212,175,55,0.3); }
-        #playBtn { background: var(--gold); border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-weight: bold; }
+        
+        /* Music Player Style */
+        #music-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(17,17,17,0.98); border: 1px solid var(--gold); padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 15px; z-index: 9999; width: 260px; box-shadow: 0 0 20px rgba(212,175,55,0.4); }
+        #playBtn { background: var(--gold); border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
-<body>
+<body onclick="firstClick()">
 
     <div class="header">
         <h1>TRUSTED SELLER VOM</h1>
@@ -34,47 +36,58 @@
     </div>
 
     <div class="reseller-list" id="resellerList">
-        <!-- SENARAI RESELLER -->
+        <!-- Contoh 3 Reseller (Anda boleh tambah lagi ikut format sama) -->
         <div class="reseller-card"><div class="info"><h3>AlipOfficialMy</h3><p>#VOM_00 • LEADER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601130694931" class="btn-wa">WHATSAPP</a></div></div>
         <div class="reseller-card"><div class="info"><h3>ZyroOfficialMy</h3><p>#VOM_04 • ASSISTANT</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60177220301" class="btn-wa">WHATSAPP</a></div></div>
         <div class="reseller-card"><div class="info"><h3>RillzzOfficialMy</h3><p>#VOM_01 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60182092362" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>RzOfficialMy</h3><p>#VOM_02 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60166346093" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>AminxOfficialMy</h3><p>#VOM_03 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601118817549" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>QstoreOfficialMy</h3><p>#VOM_05 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601157876054" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>YiyinOfficialMy</h3><p>#VOM_06 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601159208689" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>ImzzOfficialMy</h3><p>#VOM_07 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60146014701" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>LeeyaOfficialMy</h3><p>#VOM_08 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601169368813" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>QilerOfficialMy</h3><p>#VOM_09 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60107828994" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>FiqOfficialMy</h3><p>#VOM_10 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601133407753" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>RulzOfficialMy</h3><p>#VOM_11 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60177949812" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>FizzOfficialMy</h3><p>#VOM_12 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60197115664" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>HaziqOfficialMy</h3><p>#VOM_13 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601110564924" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>ProbeOfficialMy</h3><p>#VOM_14 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60102802305" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>IpanOfficialMy</h3><p>#VOM_15 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60169571363" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>MidmorOfficialMy</h3><p>#VOM_16 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60178370993" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>RexxOfficialMy</h3><p>#VOM_17 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60108297971" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>MidwanOfficialMy</h3><p>#VOM_18 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60109688445" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>NiellOfficialMy</h3><p>#VOM_19 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601163701405" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>HanzleOfficialMy</h3><p>#VOM_20 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60177964376" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>BamOfficialMy</h3><p>#VOM_21 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601156664940" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>ClonzOfficialMy</h3><p>#VOM_22 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601175648431" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>DanzzOfficialMy</h3><p>#VOM_23 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60196828535" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>RissaOfficialMy</h3><p>#VOM_24 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601126145563" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>MidmanzOfficialMy</h3><p>#VOM_25 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60173482079" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>RizzOfficialMy</h3><p>#VOM_26 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601116219602" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>ArfanOfficialMy</h3><p>#VOM_27 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601172584770" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>RezxOfficialMy</h3><p>#VOM_28 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60178654488" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>MirulOfficialMy</h3><p>#VOM_29 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60176015605" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>DimzOfficialMy</h3><p>#VOM_30 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601123103168" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>AhnasOfficialMy</h3><p>#VOM_31 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60135989578" class="btn-wa">WHATSAPP</a></div></div>
     </div>
 
+    <!-- Music Player UI -->
     <div id="music-container">
-        <div style="text-align: center; flex: 1;">
-            <span style="color: var(--gold); font-size: 10px; font-weight: bold;">VOM OFFICIAL BGM</span><br>
-            <span id="mStatus" style="color: #666; font-size: 8px;">CLICK TO PLAY</span>
+        <div style="flex: 1; text-align: center;">
+            <div style="color: var(--gold); font-size: 10px; font-weight: bold; letter-spacing: 1px;">VOM OFFICIAL BGM</div>
+            <div id="mStatus" style="color: #666; font-size: 8px;">TAP ANYWHERE TO PLAY</div>
         </div>
         <button id="playBtn" onclick="toggleM()">▶</button>
     </div>
-    <audio id="bgM" loop src="https://files.catbox.moe/o
-    
+
+    <!-- Hidden Video Player (For Audio) -->
+    <video id="bgM" loop style="display:none;">
+        <source src="https://files.catbox.moe/o6t529.mp4" type="video/mp4">
+    </video>
+
+    <script>
+        const v = document.getElementById('bgM');
+        const b = document.getElementById('playBtn');
+        const s = document.getElementById('mStatus');
+
+        function toggleM() {
+            if (v.paused) {
+                v.play();
+                b.innerText = "⏸";
+                s.innerText = "NOW PLAYING";
+            } else {
+                v.pause();
+                b.innerText = "▶";
+                s.innerText = "PAUSED";
+            }
+        }
+
+        // Auto-play trigger bila user klik mana-mana dlm web
+        function firstClick() {
+            if (v.paused && s.innerText === "TAP ANYWHERE TO PLAY") {
+                toggleM();
+            }
+        }
+
+        function searchReseller() {
+            let input = document.getElementById('searchInput').value.toUpperCase();
+            let cards = document.getElementsByClassName('reseller-card');
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getElementsByTagName('h3')[0].innerText;
+                cards[i].style.display = name.toUpperCase().indexOf(input) > -1 ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>

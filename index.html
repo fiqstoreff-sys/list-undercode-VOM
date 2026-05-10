@@ -11,13 +11,18 @@
         .header h1 { color: var(--gold); font-size: 24px; letter-spacing: 4px; text-transform: uppercase; margin: 0; }
         .search-container { width: 85%; max-width: 320px; margin: -20px 0 35px; }
         #searchInput { width: 100%; padding: 10px 20px; background: rgba(26, 26, 26, 0.9); border: 1px solid var(--gold); border-radius: 50px; color: white; outline: none; font-size: 13px; text-align: center; box-sizing: border-box; }
-        .reseller-list { width: 90%; max-width: 450px; display: flex; flex-direction: column; gap: 12px; padding-bottom: 50px; }
+        .reseller-list { width: 90%; max-width: 450px; display: flex; flex-direction: column; gap: 12px; padding-bottom: 100px; }
         .reseller-card { background: var(--card-bg); border-left: 3px solid var(--gold); border-radius: 12px; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
         .info h3 { margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
         .info p { margin: 4px 0 0; font-size: 10px; color: #666; font-weight: bold; }
         .status-box { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
         .status-active { font-size: 8px; color: var(--gold); border: 1px solid var(--gold); padding: 1px 6px; border-radius: 4px; font-weight: bold; }
         .btn-wa { background: linear-gradient(45deg, #B8860B, #F9E29C); color: #000; text-decoration: none; padding: 7px 12px; border-radius: 6px; font-size: 10px; font-weight: 800; text-transform: uppercase; }
+
+        /* Music Player Style */
+        #music-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(17, 17, 17, 0.95); border: 1px solid var(--gold); padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 15px; z-index: 9999; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); width: 280px; justify-content: center; }
+        .music-info { font-size: 10px; color: var(--gold); font-weight: bold; text-align: center; }
+        #playBtn { background: var(--gold); border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; }
     </style>
 </head>
 <body>
@@ -31,14 +36,23 @@
         <input type="text" id="searchInput" onkeyup="searchReseller()" placeholder="Cari Nama Reseller...">
     </div>
 
+    <!-- PLAYER MUZIK -->
+    <div id="music-container">
+        <div class="music-info">
+            <span id="track-name">VOM OFFICIAL BGM</span><br>
+            <span id="track-status" style="font-size: 8px; color: #666;">TAP SCREEN TO PLAY</span>
+        </div>
+        <button id="playBtn" onclick="toggleMusic()">▶</button>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="https://files.catbox.moe/o6t529.mp4" type="audio/mp4">
+    
+
     <div class="reseller-list" id="resellerList">
-        
         <!-- LEADER -->
         <div class="reseller-card"><div class="info"><h3>AlipOfficialMy</h3><p>#VOM_00 • LEADER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601130694931" class="btn-wa">WHATSAPP</a></div></div>
-
         <!-- ASSISTANT -->
         <div class="reseller-card"><div class="info"><h3>ZyroOfficialMy</h3><p>#VOM_04 • ASSISTANT</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60177220301" class="btn-wa">WHATSAPP</a></div></div>
-
         <!-- MEMBERS -->
         <div class="reseller-card"><div class="info"><h3>RillzzOfficialMy</h3><p>#VOM_01 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60182092362" class="btn-wa">WHATSAPP</a></div></div>
         <div class="reseller-card"><div class="info"><h3>RzOfficialMy</h3><p>#VOM_02 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60166346093" class="btn-wa">WHATSAPP</a></div></div>
@@ -67,23 +81,5 @@
         <div class="reseller-card"><div class="info"><h3>RizzOfficialMy</h3><p>#VOM_26 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601116219602" class="btn-wa">WHATSAPP</a></div></div>
         <div class="reseller-card"><div class="info"><h3>ArfanOfficialMy</h3><p>#VOM_27 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601172584770" class="btn-wa">WHATSAPP</a></div></div>
         <div class="reseller-card"><div class="info"><h3>RezxOfficialMy</h3><p>#VOM_28 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60178654488" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>MirulOfficialMy</h3><p>#VOM_29 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60176015605" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>DimzOfficialMy</h3><p>#VOM_30 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/601123103168" class="btn-wa">WHATSAPP</a></div></div>
-        <div class="reseller-card"><div class="info"><h3>AhnasOfficialMy</h3><p>#VOM_31 • MEMBER</p></div><div class="status-box"><span class="status-active">ACTIVE</span><a href="https://wa.me/60135989578" class="btn-wa">WHATSAPP</a></div></div>
-
-    </div>
-
-    <script>
-        function searchReseller() {
-            let input = document.getElementById('searchInput').value.toUpperCase();
-            let cards = document.getElementsByClassName('reseller-card');
-            for (let i = 0; i < cards.length; i++) {
-                let name = cards[i].getElementsByTagName('h3')[0];
-                if (name.innerHTML.toUpperCase().indexOf(input) > -1) { cards[i].style.display = ""; } 
-                else { cards[i].style.display = "none"; }
-            }
-        }
-    </script>
-</body>
-                                                                                                             </html>
-                                       
+        <div class="reseller
+                                                                                                                                      

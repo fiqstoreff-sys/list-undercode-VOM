@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESELLER LIST | VOM UNDERC0DE</title>
+    <style>
+        :root {
+            --glow: #00d2ff;
+            --bg: #02050a;
+            --card: rgba(10, 25, 47, 0.9);
+        }
 
+        body {
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0; padding: 20px;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .header {
+            text-align: center; margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 22px; letter-spacing: 2px; color: var(--glow);
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+            margin: 0;
+        }
+
+        /* Search Bar */
+        .search-container {
+            width: 100%; max-width: 500px; margin-bottom: 20px;
+        }
+
+        #searchInput {
+            width: 100%; padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glow);
+            border-radius: 30px; color: white;
+            box-sizing: border-box; outline: none;
+            font-size: 14px;
+        }
+
+        /* Reseller List */
+        .reseller-list {
+            width: 100%; max-width: 500px;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+
+        .reseller-card {
+            background: var(--card);
+            border: 1px solid rgba(0, 210, 255, 0.1);
+            padding: 15px; border-radius: 12px;
+            display: flex; justify-content: space-between; align-items: center;
+            transition: 0.3s;
+        }
+
+        .reseller-card:hover {
+            border-color: var(--glow);
+            transform: scale(1.02);
+        }
+
+        .info h3 { margin: 0; font-size: 15px; color: #fff; }
+        .info p { margin: 2px 0 0; font-size: 11px; color: var(--glow); opacity: 0.8; }
+
+        .status {
+            font-size: 10px; font-weight: bold;
+            padding: 4px 10px; border-radius: 20px;
+            background: rgba(0, 255, 0, 0.1); color: #00ff00;
+            border: 1px solid #00ff00;
+        }
+
+        .badge-vom {
+            font-size: 9px; background: var(--glow);
+            color: black; padding: 2px 6px; border-radius: 4px;
+            font-weight: bold; margin-left: 5px;
+        }
+
+        .gojo-quote {
+            margin-top: 40px; font-size: 10px; opacity: 0.4;
+            text-align: center; letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>VOM RESELLER LIST</h1>
+        <p style="font-size: 11px; opacity: 0.6;">Sila semak nama reseller sebelum berurusan.</p>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchReseller()" placeholder="Cari nama reseller...">
+    </div>
+
+    <div class="reseller-list" id="resellerList">
+        <!-- Reseller 1 -->
+        <div class="reseller-card">
+            <div class="info">
+                <h3>FIQ OFFICIAL <span class="badge-vom">OWNER</span></h3>
+                <p>ID: VOM-001</p>
+            </div>
+            <div class="status">ACTIVE</div>
+        </div>
+
+        <!-- Reseller 2 -->
+        <div class="reseller-card">
+            <div class="info">
+                <h3>AIMAN STORE</h3>
+                <p>ID: VOM-002</p>
+            </div>
+            <div class="status">ACTIVE</div>
+        </div>
+
+        <!-- Reseller 3 -->
+        <div class="reseller-card">
+            <div class="info">
+                <h3>SYAH TOPUP</h3>
+                <p>ID: VOM-003</p>
+            </div>
+            <div class="status">ACTIVE</div>
+        </div>
+    </div>
+
+    <div class="gojo-quote">
+        AUTHORIZED BY FIQ OFFICIAL • SINCE 2026
+    </div>
+
+    <script>
+        function searchReseller() {
+            let input = document.getElementById('searchInput').value.toUpperCase();
+            let cards = document.getElementsByClassName('reseller-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getElementsByTagName('h3')[0];
+                if (name.innerHTML.toUpperCase().indexOf(input) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+  </html>
+  
